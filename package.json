@@ -1,5 +1,5 @@
 {
-  "name": "@multi/prometheus-types",
+  "name": "@multi/prometheus-workflow",
   "version": "0.0.1",
   "description": "Workflow common types",
   "main": "dist/index.js",
