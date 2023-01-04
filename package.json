@@ -1,12 +1,12 @@
 {
   "name": "@flanlabs/prometheus-workflow",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Workflow common types",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "npm run build && standard-version && git push --follow-tags && npm publish --access bublic"
+    "release": "npm run build && standard-version && git push --follow-tags && npm publish --access public"
   },
   "author": "",
   "license": "ISC",
