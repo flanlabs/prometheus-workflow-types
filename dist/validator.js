@@ -19,5 +19,6 @@ exports.nodeValidators = {
     [types_1.IMAGE_BLOCK]: hasSingleInput,
     [types_1.URL_BLOCK]: hasSingleInput,
     [types_1.CODE_EXECUTION_BLOCK]: hasSingleInput,
+    [types_1.MULTI_SEARCH_BLOCK]: hasSingleInput,
 };
 //# sourceMappingURL=validator.js.map
