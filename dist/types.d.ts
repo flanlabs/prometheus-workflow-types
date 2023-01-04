@@ -101,16 +101,16 @@ export interface ImagePromptSearchDataType {
     output?: string;
     error?: string;
 }
-export interface MultiSearchBlockType extends Node {
-    type: typeof MULTI_SEARCH_BLOCK;
-    data: MultiSearchBlockDataType;
+export interface MultiSummarizationBlockType extends Node {
+    type: typeof MULTI_SUMMARIZATION_BLOCK;
+    data: MultiSummarizationBlockDataType;
 }
-export interface MultiSearchBlockDataType {
+export interface MultiSummarizationBlockDataType {
     output?: string;
     outputTitle?: string;
     error?: string;
 }
-export type CanvasNode = StringNode | LMNode | ImageNode | URLNode | CodeExecutionNode | PDFReaderBlockType | PromptSearchBlockType | ImagePromptSearchBlockType;
+export type CanvasNode = StringNode | LMNode | ImageNode | URLNode | CodeExecutionNode | PDFReaderBlockType | PromptSearchBlockType | ImagePromptSearchBlockType | MultiSummarizationBlockType;
 export interface Edge {
     id: string;
     source: string;
@@ -136,8 +136,8 @@ export declare const CODE_EXECUTION_BLOCK = "CODE_EXECUTION_BLOCK";
 export declare const PROMPT_SEARCH_BLOCK = "PROMPT_SEARCH_BLOCK";
 export declare const IMAGE_PROMPT_SEARCH_BLOCK = "IMAGE_PROMPT_SEARCH_BLOCK";
 export declare const PDF_READER_BLOCK = "PDF_READER_BLOCK";
-export declare const MULTI_SEARCH_BLOCK = "MULTI_SEARCH_BLOCK";
-export type BlockType = typeof LM_BLOCK | typeof STRING_BLOCK | typeof IMAGE_BLOCK | typeof URL_BLOCK | typeof CODE_EXECUTION_BLOCK | typeof PROMPT_SEARCH_BLOCK | typeof IMAGE_PROMPT_SEARCH_BLOCK | typeof PDF_READER_BLOCK | typeof MULTI_SEARCH_BLOCK;
+export declare const MULTI_SUMMARIZATION_BLOCK = "MULTI_SUMMARIZATION_BLOCK";
+export type BlockType = typeof LM_BLOCK | typeof STRING_BLOCK | typeof IMAGE_BLOCK | typeof URL_BLOCK | typeof CODE_EXECUTION_BLOCK | typeof PROMPT_SEARCH_BLOCK | typeof IMAGE_PROMPT_SEARCH_BLOCK | typeof PDF_READER_BLOCK | typeof MULTI_SUMMARIZATION_BLOCK;
 export declare const BlockDisplayName: {
     [key in BlockType]: string;
 };
