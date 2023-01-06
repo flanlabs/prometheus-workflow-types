@@ -144,7 +144,7 @@ export interface MultiSummarizationBlockDataType {
 }
 
 export interface MultiSearchBlockType extends Node {
-  type: typeof MULTI_SUMMARIZATION_BLOCK;
+  type: typeof MULTI_SEARCH_BLOCK;
   data: MultiSearchBlockDataType;
 }
 
