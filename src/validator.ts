@@ -9,6 +9,7 @@ import {
   CanvasNode,
   CODE_EXECUTION_BLOCK,
   MULTI_SUMMARIZATION_BLOCK,
+  MULTI_SEARCH_BLOCK,
 } from "./types";
 
 const hasSingleInput = (_: Node, edges: Edge[]): boolean => {
@@ -40,4 +41,5 @@ export const nodeValidators: {
   [URL_BLOCK]: hasSingleInput,
   [CODE_EXECUTION_BLOCK]: hasSingleInput,
   [MULTI_SUMMARIZATION_BLOCK]: hasSingleInput,
+  [MULTI_SEARCH_BLOCK]: hasSingleInput,
 };
