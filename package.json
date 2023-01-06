@@ -1,6 +1,6 @@
 {
   "name": "@flanlabs/prometheus-workflow",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Workflow common types",
   "main": "dist/index.js",
   "scripts": {
