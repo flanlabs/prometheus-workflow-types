@@ -143,6 +143,17 @@ export interface MultiSummarizationBlockDataType {
   error?: string;
 }
 
+export interface MultiSearchBlockType extends Node {
+  type: typeof MULTI_SUMMARIZATION_BLOCK;
+  data: MultiSearchBlockDataType;
+}
+
+export interface MultiSearchBlockDataType {
+  output?: string;
+  outputTitle?: string;
+  error?: string;
+}
+
 export type CanvasNode =
   | StringNode
   | LMNode
@@ -152,7 +163,8 @@ export type CanvasNode =
   | PDFReaderBlockType
   | PromptSearchBlockType
   | ImagePromptSearchBlockType
-  | MultiSummarizationBlockType;
+  | MultiSummarizationBlockType
+  | MultiSearchBlockType;
 
 export interface Edge {
   id: string;
@@ -182,6 +194,7 @@ export const PROMPT_SEARCH_BLOCK = "PROMPT_SEARCH_BLOCK";
 export const IMAGE_PROMPT_SEARCH_BLOCK = "IMAGE_PROMPT_SEARCH_BLOCK";
 export const PDF_READER_BLOCK = "PDF_READER_BLOCK";
 export const MULTI_SUMMARIZATION_BLOCK = "MULTI_SUMMARIZATION_BLOCK";
+export const MULTI_SEARCH_BLOCK = "MULTI_SEARCH_BLOCK"
 
 export type BlockType =
   | typeof LM_BLOCK
@@ -192,7 +205,8 @@ export type BlockType =
   | typeof PROMPT_SEARCH_BLOCK
   | typeof IMAGE_PROMPT_SEARCH_BLOCK
   | typeof PDF_READER_BLOCK
-  | typeof MULTI_SUMMARIZATION_BLOCK;
+  | typeof MULTI_SUMMARIZATION_BLOCK
+  | typeof MULTI_SEARCH_BLOCK;
 
 export const BlockDisplayName: { [key in BlockType]: string } = {
   [LM_BLOCK]: "AI Text",
@@ -204,6 +218,7 @@ export const BlockDisplayName: { [key in BlockType]: string } = {
   [IMAGE_PROMPT_SEARCH_BLOCK]: "AI Text",
   [PDF_READER_BLOCK]: "PDF Reader",
   [MULTI_SUMMARIZATION_BLOCK]: "Multi Summarization",
+  [MULTI_SEARCH_BLOCK]: "Multi Search",
 };
 
 // Right now only inputs/outputs are strings

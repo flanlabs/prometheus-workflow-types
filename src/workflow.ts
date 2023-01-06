@@ -2,7 +2,6 @@ import {
   BlockDisplayName,
   BlockType,
   CanvasData,
-  Node,
   Edge,
   WorkflowDefinition,
   WorkflowOutput,
