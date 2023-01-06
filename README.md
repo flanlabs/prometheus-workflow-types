@@ -12,4 +12,4 @@ Use updated version in other repos:
 - find @multi/workflows line in package.json:
   `"@multi/workflows": "git+ssh://git@github.com/flanlabs/prometheus-workflow-types.git#semver:0.0.3"`
 - replace the semver with the newest tag version: e.g. `...semver:0.0.3` => `...semver:0.0.4`
-- re-run npm install in each updated repo
+- re-run `npm install` in each updated repo
