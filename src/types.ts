@@ -164,6 +164,7 @@ export interface MultiSearchBlockDataType {
 export interface CanvasBlockType extends Node {
   type: typeof CANVAS_BLOCK;
   data: {
+    inputs: string[];
     outputs?: string[]; // recursive canvas blocks may have multiple outputs
     outputTitles?: string[];
     error?: string;
