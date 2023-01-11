@@ -64,6 +64,13 @@ export interface URLNode extends Node {
     outputTitle?: string;
   };
 }
+export interface CanvasBlockNode extends Node {
+  type: typeof CANVAS_BLOCK;
+  data: {
+    output?: string;
+    outputTitle?: string;
+  };
+}
 
 export const EXECUTABLE_CODING_LANGUAGES = ["javascript"] as const;
 export type ExecutableCodingLanguages =
@@ -154,6 +161,15 @@ export interface MultiSearchBlockDataType {
   error?: string;
 }
 
+export interface CanvasBlockType extends Node {
+  type: typeof CANVAS_BLOCK;
+  data: {
+    outputs?: string[]; // recursive canvas blocks may have multiple outputs
+    outputTitles?: string[];
+    error?: string;
+  };
+}
+
 export type CanvasNode =
   | StringNode
   | LMNode
@@ -164,7 +180,8 @@ export type CanvasNode =
   | PromptSearchBlockType
   | ImagePromptSearchBlockType
   | MultiSummarizationBlockType
-  | MultiSearchBlockType;
+  | MultiSearchBlockType
+  | CanvasBlockType;
 
 export interface Edge {
   id: string;
@@ -194,7 +211,8 @@ export const PROMPT_SEARCH_BLOCK = "PROMPT_SEARCH_BLOCK";
 export const IMAGE_PROMPT_SEARCH_BLOCK = "IMAGE_PROMPT_SEARCH_BLOCK";
 export const PDF_READER_BLOCK = "PDF_READER_BLOCK";
 export const MULTI_SUMMARIZATION_BLOCK = "MULTI_SUMMARIZATION_BLOCK";
-export const MULTI_SEARCH_BLOCK = "MULTI_SEARCH_BLOCK"
+export const MULTI_SEARCH_BLOCK = "MULTI_SEARCH_BLOCK";
+export const CANVAS_BLOCK = "CANVAS_BLOCK";
 
 export type BlockType =
   | typeof LM_BLOCK
@@ -206,7 +224,8 @@ export type BlockType =
   | typeof IMAGE_PROMPT_SEARCH_BLOCK
   | typeof PDF_READER_BLOCK
   | typeof MULTI_SUMMARIZATION_BLOCK
-  | typeof MULTI_SEARCH_BLOCK;
+  | typeof MULTI_SEARCH_BLOCK
+  | typeof CANVAS_BLOCK;
 
 export const BlockDisplayName: { [key in BlockType]: string } = {
   [LM_BLOCK]: "AI Text",
@@ -219,6 +238,7 @@ export const BlockDisplayName: { [key in BlockType]: string } = {
   [PDF_READER_BLOCK]: "PDF Reader",
   [MULTI_SUMMARIZATION_BLOCK]: "Multi Summarization",
   [MULTI_SEARCH_BLOCK]: "Multi Search",
+  [CANVAS_BLOCK]: "Canvas Block",
 };
 
 // Right now only inputs/outputs are strings

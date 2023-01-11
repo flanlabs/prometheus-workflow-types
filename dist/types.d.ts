@@ -52,6 +52,13 @@ export interface URLNode extends Node {
         outputTitle?: string;
     };
 }
+export interface CanvasBlockNode extends Node {
+    type: typeof CANVAS_BLOCK;
+    data: {
+        output?: string;
+        outputTitle?: string;
+    };
+}
 export declare const EXECUTABLE_CODING_LANGUAGES: readonly ["javascript"];
 export type ExecutableCodingLanguages = typeof EXECUTABLE_CODING_LANGUAGES[number];
 export interface CodeExecutionNode extends Node {
@@ -111,7 +118,7 @@ export interface MultiSummarizationBlockDataType {
     error?: string;
 }
 export interface MultiSearchBlockType extends Node {
-    type: typeof MULTI_SUMMARIZATION_BLOCK;
+    type: typeof MULTI_SEARCH_BLOCK;
     data: MultiSearchBlockDataType;
 }
 export interface MultiSearchBlockDataType {
@@ -119,7 +126,15 @@ export interface MultiSearchBlockDataType {
     outputTitle?: string;
     error?: string;
 }
-export type CanvasNode = StringNode | LMNode | ImageNode | URLNode | CodeExecutionNode | PDFReaderBlockType | PromptSearchBlockType | ImagePromptSearchBlockType | MultiSummarizationBlockType | MultiSearchBlockType;
+export interface CanvasBlockType extends Node {
+    type: typeof CANVAS_BLOCK;
+    data: {
+        outputs?: string[];
+        outputTitles?: string[];
+        error?: string;
+    };
+}
+export type CanvasNode = StringNode | LMNode | ImageNode | URLNode | CodeExecutionNode | PDFReaderBlockType | PromptSearchBlockType | ImagePromptSearchBlockType | MultiSummarizationBlockType | MultiSearchBlockType | CanvasBlockType;
 export interface Edge {
     id: string;
     source: string;
@@ -147,7 +162,8 @@ export declare const IMAGE_PROMPT_SEARCH_BLOCK = "IMAGE_PROMPT_SEARCH_BLOCK";
 export declare const PDF_READER_BLOCK = "PDF_READER_BLOCK";
 export declare const MULTI_SUMMARIZATION_BLOCK = "MULTI_SUMMARIZATION_BLOCK";
 export declare const MULTI_SEARCH_BLOCK = "MULTI_SEARCH_BLOCK";
-export type BlockType = typeof LM_BLOCK | typeof STRING_BLOCK | typeof IMAGE_BLOCK | typeof URL_BLOCK | typeof CODE_EXECUTION_BLOCK | typeof PROMPT_SEARCH_BLOCK | typeof IMAGE_PROMPT_SEARCH_BLOCK | typeof PDF_READER_BLOCK | typeof MULTI_SUMMARIZATION_BLOCK | typeof MULTI_SEARCH_BLOCK;
+export declare const CANVAS_BLOCK = "CANVAS_BLOCK";
+export type BlockType = typeof LM_BLOCK | typeof STRING_BLOCK | typeof IMAGE_BLOCK | typeof URL_BLOCK | typeof CODE_EXECUTION_BLOCK | typeof PROMPT_SEARCH_BLOCK | typeof IMAGE_PROMPT_SEARCH_BLOCK | typeof PDF_READER_BLOCK | typeof MULTI_SUMMARIZATION_BLOCK | typeof MULTI_SEARCH_BLOCK | typeof CANVAS_BLOCK;
 export declare const BlockDisplayName: {
     [key in BlockType]: string;
 };
