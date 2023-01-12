@@ -161,6 +161,16 @@ export interface MultiSearchBlockDataType {
   error?: string;
 }
 
+export interface MultiDocumentQABlockDataType {
+  output?: string;
+  outputTitle?: string;
+  error?: string;
+}
+export interface MultiDocumentQABlockType extends Node {
+  type: typeof MULTI_DOCUMENT_QA_BLOCK;
+  data: MultiDocumentQABlockDataType;
+}
+
 export interface CanvasBlockType extends Node {
   type: typeof CANVAS_BLOCK;
   data: {
@@ -182,6 +192,7 @@ export type CanvasNode =
   | ImagePromptSearchBlockType
   | MultiSummarizationBlockType
   | MultiSearchBlockType
+  | MultiDocumentQABlockType
   | CanvasBlockType;
 
 export interface Edge {
@@ -213,6 +224,7 @@ export const IMAGE_PROMPT_SEARCH_BLOCK = "IMAGE_PROMPT_SEARCH_BLOCK";
 export const PDF_READER_BLOCK = "PDF_READER_BLOCK";
 export const MULTI_SUMMARIZATION_BLOCK = "MULTI_SUMMARIZATION_BLOCK";
 export const MULTI_SEARCH_BLOCK = "MULTI_SEARCH_BLOCK";
+export const MULTI_DOCUMENT_QA_BLOCK = "MULTI_DOCUMENT_QA_BLOCK";
 export const CANVAS_BLOCK = "CANVAS_BLOCK";
 
 export type BlockType =
@@ -226,6 +238,7 @@ export type BlockType =
   | typeof PDF_READER_BLOCK
   | typeof MULTI_SUMMARIZATION_BLOCK
   | typeof MULTI_SEARCH_BLOCK
+  | typeof MULTI_DOCUMENT_QA_BLOCK
   | typeof CANVAS_BLOCK;
 
 export const BlockDisplayName: { [key in BlockType]: string } = {
@@ -239,6 +252,7 @@ export const BlockDisplayName: { [key in BlockType]: string } = {
   [PDF_READER_BLOCK]: "PDF Reader",
   [MULTI_SUMMARIZATION_BLOCK]: "Multi Summarization",
   [MULTI_SEARCH_BLOCK]: "Multi Search",
+  [MULTI_DOCUMENT_QA_BLOCK]: "Multi Document Q&A",
   [CANVAS_BLOCK]: "Canvas Block",
 };
 
