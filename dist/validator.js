@@ -1,4 +1,4 @@
-import { IMAGE_BLOCK, LM_BLOCK, STRING_BLOCK, URL_BLOCK, CODE_EXECUTION_BLOCK, MULTI_SUMMARIZATION_BLOCK, MULTI_SEARCH_BLOCK, } from "./types.js";
+import { IMAGE_BLOCK, LM_BLOCK, STRING_BLOCK, URL_BLOCK, CODE_EXECUTION_BLOCK, MULTI_SUMMARIZATION_BLOCK, MULTI_SEARCH_BLOCK, SWITCH_BLOCK, } from "./types.js";
 const hasSingleInput = (_, edges) => {
     return edges.length === 1;
 };
@@ -18,5 +18,6 @@ export const nodeValidators = {
     [CODE_EXECUTION_BLOCK]: hasSingleInput,
     [MULTI_SUMMARIZATION_BLOCK]: hasSingleInput,
     [MULTI_SEARCH_BLOCK]: hasSingleInput,
+    [SWITCH_BLOCK]: hasSingleInput,
 };
 //# sourceMappingURL=validator.js.map

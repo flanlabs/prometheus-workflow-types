@@ -11,6 +11,7 @@ export const PDF_READER_BLOCK = "PDF_READER_BLOCK";
 export const MULTI_SUMMARIZATION_BLOCK = "MULTI_SUMMARIZATION_BLOCK";
 export const MULTI_SEARCH_BLOCK = "MULTI_SEARCH_BLOCK";
 export const MULTI_DOCUMENT_QA_BLOCK = "MULTI_DOCUMENT_QA_BLOCK";
+export const SWITCH_BLOCK = "SWITCH_BLOCK";
 export const BlockDisplayName = {
     [LM_BLOCK]: "AI Text",
     [STRING_BLOCK]: "Text",
@@ -23,5 +24,6 @@ export const BlockDisplayName = {
     [MULTI_SUMMARIZATION_BLOCK]: "Multi Summarization",
     [MULTI_SEARCH_BLOCK]: "Multi Search",
     [MULTI_DOCUMENT_QA_BLOCK]: "Multi Document Q&A",
+    [SWITCH_BLOCK]: "Switch"
 };
 //# sourceMappingURL=types.js.map
