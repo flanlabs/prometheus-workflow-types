@@ -131,13 +131,14 @@ export interface MultiDocumentQABlockType extends Node {
 export interface SwitchBlockDataType {
     output?: Record<string, string | null>;
     outputTitle?: string;
+    regexPatterns: Record<string, string>;
     error?: string;
 }
 export interface SwitchBlockType extends Node {
     type: typeof SWITCH_BLOCK;
     data: SwitchBlockDataType;
 }
-export type CanvasNode = StringNode | LMNode | ImageNode | URLNode | CodeExecutionNode | PDFReaderBlockType | PromptSearchBlockType | ImagePromptSearchBlockType | MultiSummarizationBlockType | MultiSearchBlockType | MultiDocumentQABlockType;
+export type CanvasNode = StringNode | LMNode | ImageNode | URLNode | CodeExecutionNode | PDFReaderBlockType | PromptSearchBlockType | ImagePromptSearchBlockType | MultiSummarizationBlockType | MultiSearchBlockType | MultiDocumentQABlockType | SwitchBlockType;
 export interface Edge {
     id: string;
     source: string;

@@ -168,6 +168,7 @@ export interface SwitchBlockDataType {
   // 1/16 TODO: this depends on pending changes supporting multi-output blocks
   output?: Record<string, string | null>;
   outputTitle?: string;
+  regexPatterns: Record<string, string>;
   error?: string;
 }
 
@@ -187,7 +188,8 @@ export type CanvasNode =
   | ImagePromptSearchBlockType
   | MultiSummarizationBlockType
   | MultiSearchBlockType
-  | MultiDocumentQABlockType;
+  | MultiDocumentQABlockType
+  | SwitchBlockType;
 
 export interface Edge {
   id: string;
