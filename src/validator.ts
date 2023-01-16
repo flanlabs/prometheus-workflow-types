@@ -40,12 +40,12 @@ const hasWellFormedRegexValues = (node: CanvasNode, _: Edge[]): boolean => {
     return false;
   }
   const regexPatterns = node.data.regexPatterns;
-  if (Object.keys(regexPatterns).length > MAX_SWITCH_BLOCK_REGEX_PATTERNS) {
+  if (regexPatterns.length > MAX_SWITCH_BLOCK_REGEX_PATTERNS) {
     return false;
   }
   try {
     // if any of the regex patterns are invalid, the RegExp constructor will throw an Error
-    Object.keys(regexPatterns).forEach((key) => new RegExp(regexPatterns[key]))
+    regexPatterns.forEach((pattern) => new RegExp(pattern))
   } catch {
     return false;
   }

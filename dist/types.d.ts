@@ -131,7 +131,7 @@ export interface MultiDocumentQABlockType extends Node {
 export interface SwitchBlockDataType {
     output?: Record<string, string | null>;
     outputTitle?: string;
-    regexPatterns: Record<string, string>;
+    regexPatterns: string[];
     error?: string;
 }
 export interface SwitchBlockType extends Node {
