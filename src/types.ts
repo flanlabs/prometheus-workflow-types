@@ -164,6 +164,18 @@ export interface MultiDocumentQABlockType extends Node {
   data: MultiDocumentQABlockDataType;
 }
 
+export interface SwitchBlockDataType {
+  // 1/16 TODO: this depends on pending changes supporting multi-output blocks
+  output?: Record<string, string | null>;
+  outputTitle?: string;
+  error?: string;
+}
+
+export interface SwitchBlockType extends Node {
+  type: typeof SWITCH_BLOCK;
+  data: SwitchBlockDataType;
+}
+
 export type CanvasNode =
   | StringNode
   | LMNode
@@ -208,6 +220,8 @@ export const MULTI_SUMMARIZATION_BLOCK = "MULTI_SUMMARIZATION_BLOCK";
 export const MULTI_SEARCH_BLOCK = "MULTI_SEARCH_BLOCK";
 export const MULTI_DOCUMENT_QA_BLOCK = "MULTI_DOCUMENT_QA_BLOCK";
 
+export const SWITCH_BLOCK = "SWITCH_BLOCK";
+
 export type BlockType =
   | typeof LM_BLOCK
   | typeof STRING_BLOCK
@@ -219,7 +233,8 @@ export type BlockType =
   | typeof PDF_READER_BLOCK
   | typeof MULTI_SUMMARIZATION_BLOCK
   | typeof MULTI_SEARCH_BLOCK
-  | typeof MULTI_DOCUMENT_QA_BLOCK;
+  | typeof MULTI_DOCUMENT_QA_BLOCK
+  | typeof SWITCH_BLOCK;
 
 export const BlockDisplayName: { [key in BlockType]: string } = {
   [LM_BLOCK]: "AI Text",
@@ -233,6 +248,7 @@ export const BlockDisplayName: { [key in BlockType]: string } = {
   [MULTI_SUMMARIZATION_BLOCK]: "Multi Summarization",
   [MULTI_SEARCH_BLOCK]: "Multi Search",
   [MULTI_DOCUMENT_QA_BLOCK]: "Multi Document Q&A",
+  [SWITCH_BLOCK]: "Switch"
 };
 
 // Right now only inputs/outputs are strings
