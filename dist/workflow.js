@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateWorkflowDefinition = exports.nodeIsValid = void 0;
+exports.generateWorkflowDefinition = exports.nodeIsValid = exports.DEFAULT_SOURCE_HANDLE_ID = void 0;
 const types_1 = require("./types");
 const validator_1 = require("./validator");
+exports.DEFAULT_SOURCE_HANDLE_ID = "output";
 const nodeIsValid = (node, incomingEdges) => {
     const validator = validator_1.nodeValidators[node.type];
     return validator ? validator(node, incomingEdges) : true;

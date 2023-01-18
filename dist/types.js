@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BlockDisplayName = exports.CANVAS_BLOCK = exports.MULTI_SEARCH_BLOCK = exports.MULTI_SUMMARIZATION_BLOCK = exports.PDF_READER_BLOCK = exports.IMAGE_PROMPT_SEARCH_BLOCK = exports.PROMPT_SEARCH_BLOCK = exports.CODE_EXECUTION_BLOCK = exports.URL_BLOCK = exports.IMAGE_BLOCK = exports.STRING_BLOCK = exports.LM_BLOCK = exports.EXECUTABLE_CODING_LANGUAGES = exports.WORKFLOWS_COLLECTION = void 0;
+exports.BlockDisplayName = exports.RECURSIVE_CANVAS_BLOCK = exports.MULTI_DOCUMENT_QA_BLOCK = exports.MULTI_SEARCH_BLOCK = exports.MULTI_SUMMARIZATION_BLOCK = exports.PDF_READER_BLOCK = exports.IMAGE_PROMPT_SEARCH_BLOCK = exports.PROMPT_SEARCH_BLOCK = exports.CODE_EXECUTION_BLOCK = exports.URL_BLOCK = exports.IMAGE_BLOCK = exports.STRING_BLOCK = exports.LM_BLOCK = exports.EXECUTABLE_CODING_LANGUAGES = exports.WORKFLOWS_COLLECTION = void 0;
 exports.WORKFLOWS_COLLECTION = "workflows";
 exports.EXECUTABLE_CODING_LANGUAGES = ["javascript"];
 exports.LM_BLOCK = "AGIBLOCK";
@@ -13,7 +13,8 @@ exports.IMAGE_PROMPT_SEARCH_BLOCK = "IMAGE_PROMPT_SEARCH_BLOCK";
 exports.PDF_READER_BLOCK = "PDF_READER_BLOCK";
 exports.MULTI_SUMMARIZATION_BLOCK = "MULTI_SUMMARIZATION_BLOCK";
 exports.MULTI_SEARCH_BLOCK = "MULTI_SEARCH_BLOCK";
-exports.CANVAS_BLOCK = "CANVAS_BLOCK";
+exports.MULTI_DOCUMENT_QA_BLOCK = "MULTI_DOCUMENT_QA_BLOCK";
+exports.RECURSIVE_CANVAS_BLOCK = "RECURSIVE_CANVAS_BLOCK";
 exports.BlockDisplayName = {
     [exports.LM_BLOCK]: "AI Text",
     [exports.STRING_BLOCK]: "Text",
@@ -25,6 +26,7 @@ exports.BlockDisplayName = {
     [exports.PDF_READER_BLOCK]: "PDF Reader",
     [exports.MULTI_SUMMARIZATION_BLOCK]: "Multi Summarization",
     [exports.MULTI_SEARCH_BLOCK]: "Multi Search",
-    [exports.CANVAS_BLOCK]: "Canvas Block",
+    [exports.MULTI_DOCUMENT_QA_BLOCK]: "Multi Document Q&A",
+    [exports.RECURSIVE_CANVAS_BLOCK]: "Recursive Canvas Block",
 };
 //# sourceMappingURL=types.js.map

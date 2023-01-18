@@ -3,6 +3,8 @@ import { CreateCompletionRequest } from "openai";
 
 export const WORKFLOWS_COLLECTION = "workflows";
 
+export type NodeOutputType = Record<string, string>;
+
 export interface TemplateData {
   templateName: string;
   description: string;
@@ -34,7 +36,7 @@ export interface StringNode extends Node {
   data: {
     templateString: string;
     variables: string[];
-    output?: string;
+    output?: NodeOutputType;
     outputTitle?: string;
     inputTitle?: string;
   };
@@ -43,7 +45,7 @@ export interface StringNode extends Node {
 export interface LMNode extends Node {
   type: typeof LM_BLOCK;
   data: {
-    output?: string;
+    output?: NodeOutputType;
     outputTitle?: string;
     config?: GPT3Config;
   };
@@ -52,7 +54,7 @@ export interface LMNode extends Node {
 export interface ImageNode extends Node {
   type: typeof IMAGE_BLOCK;
   data: {
-    output?: string;
+    output?: NodeOutputType;
     outputTitle?: string;
   };
 }
@@ -60,7 +62,7 @@ export interface ImageNode extends Node {
 export interface URLNode extends Node {
   type: typeof URL_BLOCK;
   data: {
-    output?: string;
+    output?: NodeOutputType;
     outputTitle?: string;
   };
 }
@@ -75,7 +77,7 @@ export interface CodeExecutionNode extends Node {
     language: ExecutableCodingLanguages;
     script: string;
     inputKey: string;
-    output?: string;
+    output?: NodeOutputType;
     outputTitle?: string;
     error?: string;
   };
@@ -107,7 +109,7 @@ export interface PDFReaderBlockType extends Node {
 }
 
 export interface PDFReaderBlockDataType {
-  output?: string;
+  output?: NodeOutputType;
   outputTitle?: string;
   error?: string;
   config?: PDFReaderConfig;
@@ -119,7 +121,7 @@ export interface PromptSearchBlockType extends Node {
 }
 
 export interface PromptSearchDataType {
-  output?: string;
+  output?: NodeOutputType;
   error?: string;
 }
 
@@ -129,7 +131,7 @@ export interface ImagePromptSearchBlockType extends Node {
 }
 
 export interface ImagePromptSearchDataType {
-  output?: string;
+  output?: NodeOutputType;
   error?: string;
 }
 export interface MultiSummarizationBlockType extends Node {
@@ -138,7 +140,7 @@ export interface MultiSummarizationBlockType extends Node {
 }
 
 export interface MultiSummarizationBlockDataType {
-  output?: string;
+  output?: NodeOutputType;
   outputTitle?: string;
   error?: string;
 }
@@ -149,19 +151,32 @@ export interface MultiSearchBlockType extends Node {
 }
 
 export interface MultiSearchBlockDataType {
-  output?: string;
+  output?: NodeOutputType;
   outputTitle?: string;
   error?: string;
 }
 
 export interface MultiDocumentQABlockDataType {
-  output?: string;
+  output?: NodeOutputType;
   outputTitle?: string;
   error?: string;
 }
 export interface MultiDocumentQABlockType extends Node {
   type: typeof MULTI_DOCUMENT_QA_BLOCK;
   data: MultiDocumentQABlockDataType;
+}
+
+export interface RecursiveCanvasBlockType extends Node {
+  type: typeof RECURSIVE_CANVAS_BLOCK;
+  data: {
+    output?: NodeOutputType;
+    error?: string;
+    uid: string;
+    parentCanvasId: string;
+    canvasName: string;
+    inputKeys: string[];
+    outputKeys: string[];
+  };
 }
 
 export type CanvasNode =
@@ -175,7 +190,8 @@ export type CanvasNode =
   | ImagePromptSearchBlockType
   | MultiSummarizationBlockType
   | MultiSearchBlockType
-  | MultiDocumentQABlockType;
+  | MultiDocumentQABlockType
+  | RecursiveCanvasBlockType;
 
 export interface Edge {
   id: string;
@@ -207,6 +223,7 @@ export const PDF_READER_BLOCK = "PDF_READER_BLOCK";
 export const MULTI_SUMMARIZATION_BLOCK = "MULTI_SUMMARIZATION_BLOCK";
 export const MULTI_SEARCH_BLOCK = "MULTI_SEARCH_BLOCK";
 export const MULTI_DOCUMENT_QA_BLOCK = "MULTI_DOCUMENT_QA_BLOCK";
+export const RECURSIVE_CANVAS_BLOCK = "RECURSIVE_CANVAS_BLOCK";
 
 export type BlockType =
   | typeof LM_BLOCK
@@ -219,7 +236,8 @@ export type BlockType =
   | typeof PDF_READER_BLOCK
   | typeof MULTI_SUMMARIZATION_BLOCK
   | typeof MULTI_SEARCH_BLOCK
-  | typeof MULTI_DOCUMENT_QA_BLOCK;
+  | typeof MULTI_DOCUMENT_QA_BLOCK
+  | typeof RECURSIVE_CANVAS_BLOCK;
 
 export const BlockDisplayName: { [key in BlockType]: string } = {
   [LM_BLOCK]: "AI Text",
@@ -233,6 +251,7 @@ export const BlockDisplayName: { [key in BlockType]: string } = {
   [MULTI_SUMMARIZATION_BLOCK]: "Multi Summarization",
   [MULTI_SEARCH_BLOCK]: "Multi Search",
   [MULTI_DOCUMENT_QA_BLOCK]: "Multi Document Q&A",
+  [RECURSIVE_CANVAS_BLOCK]: "Recursive Canvas Block",
 };
 
 // Right now only inputs/outputs are strings
