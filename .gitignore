@@ -108,3 +108,5 @@ typings/
 # editor config files
 .vscode
 .idea
+
+dist/
