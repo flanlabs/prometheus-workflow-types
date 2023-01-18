@@ -2,19 +2,18 @@
   "compilerOptions": {
     "allowJs": false,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Node16",
+    "module": "ES2022",
     "importHelpers": true,
-    "lib": ["es2017", "dom"],
+    "lib": ["ES2022"],
     "strict": true,
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "esModuleInterop": true,
-    "incremental": true,
     "paths": {
       "tslib": ["node_modules/tslib/tslib.d.ts"]
     },
     "noImplicitAny": true,
-    "module": "commonjs",
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
@@ -23,8 +22,8 @@
     "target": "es2017",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "preserveWatchOutput": true
   },
-  "include": ["./src"],
-  "exclude": ["./dist"]
+  "include": ["./src/**/*"],
 }

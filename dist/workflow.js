@@ -1,14 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateWorkflowDefinition = exports.nodeIsValid = exports.DEFAULT_SOURCE_HANDLE_ID = void 0;
-const types_1 = require("./types");
-const validator_1 = require("./validator");
-exports.DEFAULT_SOURCE_HANDLE_ID = "output";
-const nodeIsValid = (node, incomingEdges) => {
-    const validator = validator_1.nodeValidators[node.type];
+import { BlockDisplayName, STRING_BLOCK, } from "./types.js";
+import { nodeValidators } from "./validator.js";
+export const DEFAULT_SOURCE_HANDLE_ID = "output";
+export const nodeIsValid = (node, incomingEdges) => {
+    const validator = nodeValidators[node.type];
     return validator ? validator(node, incomingEdges) : true;
 };
-exports.nodeIsValid = nodeIsValid;
 const comparePosition = (positionA, positionB) => {
     if (positionA.x < positionB.x) {
         return -1;
@@ -67,7 +63,7 @@ const getValidCanvas = (nodes, edges) => {
         if (!currNode || excludedNodes.has(currNode.id)) {
             continue;
         }
-        const isValid = (0, exports.nodeIsValid)(currNode, incomingEdgesByNode[currNode.id] || []);
+        const isValid = nodeIsValid(currNode, incomingEdgesByNode[currNode.id] || []);
         if (isValid) {
             nodesToVisit.push(...(outgoingEdgesByNode[currNode.id] || []).map((edge) => edge.target));
         }
@@ -80,7 +76,7 @@ const getValidCanvas = (nodes, edges) => {
     const outputNodes = [];
     validNodes.forEach((node) => {
         nodesById[node.id] = node;
-        if (!(node.id in incomingEdgesByNode) && node.type === types_1.STRING_BLOCK) {
+        if (!(node.id in incomingEdgesByNode) && node.type === STRING_BLOCK) {
             inputNodes.push(node.id);
         }
         if (!(node.id in outgoingEdgesByNode)) {
@@ -100,7 +96,7 @@ const getValidCanvas = (nodes, edges) => {
     const parameters = inputNodes.map((nodeId) => {
         const node = nodesById[nodeId];
         return {
-            blockType: types_1.BlockDisplayName[nodesById[nodeId].type],
+            blockType: BlockDisplayName[nodesById[nodeId].type],
             type: "string",
             name: "inputTitle" in node.data ? node.data.inputTitle : undefined,
             nodeId: node.id,
@@ -109,7 +105,7 @@ const getValidCanvas = (nodes, edges) => {
     const outputs = outputNodes.map((nodeId) => {
         const node = nodesById[nodeId];
         return {
-            blockType: types_1.BlockDisplayName[nodesById[nodeId].type],
+            blockType: BlockDisplayName[nodesById[nodeId].type],
             type: "string",
             name: "outputTitle" in node.data ? node.data["outputTitle"] : undefined,
             nodeId: node.id,
@@ -124,7 +120,7 @@ const getValidCanvas = (nodes, edges) => {
         outputNodes,
     };
 };
-const generateWorkflowDefinition = (canvas) => {
+export const generateWorkflowDefinition = (canvas) => {
     const { nodes: validNodes, edges: validEdges, parameters, inputNodes, outputs, outputNodes, } = getValidCanvas(canvas.nodes, canvas.edges);
     return {
         nodes: validNodes,
@@ -135,5 +131,4 @@ const generateWorkflowDefinition = (canvas) => {
         outputNodes,
     };
 };
-exports.generateWorkflowDefinition = generateWorkflowDefinition;
 //# sourceMappingURL=workflow.js.map

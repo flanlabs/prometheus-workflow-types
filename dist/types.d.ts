@@ -133,7 +133,6 @@ export interface RecursiveCanvasBlockType extends Node {
     type: typeof RECURSIVE_CANVAS_BLOCK;
     data: {
         output?: NodeOutputType;
-        outputTitle?: string;
         error?: string;
         uid: string;
         parentCanvasId: string;

@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.nodeValidators = void 0;
-const types_1 = require("./types");
+import { IMAGE_BLOCK, LM_BLOCK, STRING_BLOCK, URL_BLOCK, CODE_EXECUTION_BLOCK, MULTI_SUMMARIZATION_BLOCK, MULTI_SEARCH_BLOCK, } from "./types.js";
 const hasSingleInput = (_, edges) => {
     return edges.length === 1;
 };
@@ -13,13 +10,13 @@ const allFormatStringVariablesSatisfied = (node, edges) => {
     }
     return node.data.variables.every((variable) => edges.some((edge) => edge.targetHandle === variable));
 };
-exports.nodeValidators = {
-    [types_1.LM_BLOCK]: hasSingleInput,
-    [types_1.STRING_BLOCK]: allFormatStringVariablesSatisfied,
-    [types_1.IMAGE_BLOCK]: hasSingleInput,
-    [types_1.URL_BLOCK]: hasSingleInput,
-    [types_1.CODE_EXECUTION_BLOCK]: hasSingleInput,
-    [types_1.MULTI_SUMMARIZATION_BLOCK]: hasSingleInput,
-    [types_1.MULTI_SEARCH_BLOCK]: hasSingleInput,
+export const nodeValidators = {
+    [LM_BLOCK]: hasSingleInput,
+    [STRING_BLOCK]: allFormatStringVariablesSatisfied,
+    [IMAGE_BLOCK]: hasSingleInput,
+    [URL_BLOCK]: hasSingleInput,
+    [CODE_EXECUTION_BLOCK]: hasSingleInput,
+    [MULTI_SUMMARIZATION_BLOCK]: hasSingleInput,
+    [MULTI_SEARCH_BLOCK]: hasSingleInput,
 };
 //# sourceMappingURL=validator.js.map

@@ -10,7 +10,7 @@ import {
   CODE_EXECUTION_BLOCK,
   MULTI_SUMMARIZATION_BLOCK,
   MULTI_SEARCH_BLOCK,
-} from "./types";
+} from "./types.js";
 
 const hasSingleInput = (_: Node, edges: Edge[]): boolean => {
   return edges.length === 1;
