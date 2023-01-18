@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.30](https://github.com/flanlabs/prometheus-types/compare/v0.0.29...v0.0.30) (2023-01-18)
+
+
+### Bug Fixes
+
+* re-added DOM lib in tsconfig ([f499592](https://github.com/flanlabs/prometheus-types/commit/f4995923e98d93dfa20f0e3db00c0978c7d532b1))
+
 ### [0.0.29](https://github.com/flanlabs/prometheus-types/compare/v0.0.18...v0.0.29) (2023-01-18)
 
 ### [0.0.20](https://github.com/flanlabs/prometheus-types/compare/v0.0.18...v0.0.20) (2023-01-18)
