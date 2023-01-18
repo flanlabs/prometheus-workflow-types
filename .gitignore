@@ -101,3 +101,10 @@ typings/
 
 # TernJS port file
 .tern-port
+
+# macOS filesystem
+.DS_Store
+
+# editor config files
+.vscode
+.idea

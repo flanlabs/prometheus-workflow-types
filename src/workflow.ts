@@ -9,8 +9,8 @@ import {
   XYPosition,
   CanvasNode,
   STRING_BLOCK,
-} from "./types";
-import { nodeValidators } from "./validator";
+} from "./types.js";
+import { nodeValidators } from "./validator.js";
 
 export const nodeIsValid = (
   node: CanvasNode,
