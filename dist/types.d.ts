@@ -129,7 +129,7 @@ export interface MultiDocumentQABlockType extends Node {
     data: MultiDocumentQABlockDataType;
 }
 export interface SwitchBlockDataType {
-    output?: Record<string, string | null>;
+    output?: Record<string, string>;
     outputTitle?: string;
     regexPatterns: string[];
     error?: string;

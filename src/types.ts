@@ -165,8 +165,7 @@ export interface MultiDocumentQABlockType extends Node {
 }
 
 export interface SwitchBlockDataType {
-  // 1/16 TODO: this depends on pending changes supporting multi-output blocks
-  output?: Record<string, string | null>;
+  output?: Record<string, string>;
   outputTitle?: string;
   regexPatterns: string[];
   error?: string;
