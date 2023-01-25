@@ -1,5 +1,6 @@
 import { BlockDisplayName, STRING_BLOCK, } from "./types.js";
 import { nodeValidators } from "./validator.js";
+export const DEFAULT_SOURCE_HANDLE_ID = "output";
 export const nodeIsValid = (node, incomingEdges) => {
     const validator = nodeValidators[node.type];
     return validator ? validator(node, incomingEdges) : true;

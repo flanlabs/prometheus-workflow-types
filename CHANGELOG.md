@@ -4,16 +4,37 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.0.33](https://github.com/flanlabs/prometheus-types/compare/v0.0.30...v0.0.33) (2023-01-24)
 
-### [0.0.30](https://github.com/flanlabs/prometheus-types/compare/v0.0.29...v0.0.30) (2023-01-18)
+### [0.0.32](https://github.com/flanlabs/prometheus-types/compare/v0.0.31...v0.0.32) (2023-01-23)
 
+### [0.0.31](https://github.com/flanlabs/prometheus-types/compare/v0.0.30...v0.0.31) (2023-01-19)
+
+### [0.0.30](https://github.com/flanlabs/prometheus-types/compare/v0.0.29...v0.0.30) (2023-01-18)
 
 ### Bug Fixes
 
-* re-added DOM lib in tsconfig ([f499592](https://github.com/flanlabs/prometheus-types/commit/f4995923e98d93dfa20f0e3db00c0978c7d532b1))
+- re-added DOM lib in tsconfig ([f499592](https://github.com/flanlabs/prometheus-types/commit/f4995923e98d93dfa20f0e3db00c0978c7d532b1))
 
 ### [0.0.29](https://github.com/flanlabs/prometheus-types/compare/v0.0.18...v0.0.29) (2023-01-18)
 
-### [0.0.20](https://github.com/flanlabs/prometheus-types/compare/v0.0.18...v0.0.20) (2023-01-18)
+### [0.0.28](https://github.com/flanlabs/prometheus-types/compare/v0.0.27...v0.0.28) (2023-01-18)
+
+### [0.0.27](https://github.com/flanlabs/prometheus-types/compare/v0.0.26...v0.0.27) (2023-01-18)
+
+### [0.0.26](https://github.com/flanlabs/prometheus-types/compare/v0.0.25...v0.0.26) (2023-01-18)
+
+### [0.0.25](https://github.com/flanlabs/prometheus-types/compare/v0.0.24...v0.0.25) (2023-01-18)
+
+### [0.0.24](https://github.com/flanlabs/prometheus-types/compare/v0.0.23...v0.0.24) (2023-01-17)
+
+### [0.0.23](https://github.com/flanlabs/prometheus-types/compare/v0.0.22...v0.0.23) (2023-01-17)
+
+### [0.0.22](https://github.com/flanlabs/prometheus-types/compare/v0.0.21...v0.0.22) (2023-01-17)
+
+### [0.0.21](https://github.com/flanlabs/prometheus-types/compare/v0.0.20...v0.0.21) (2023-01-17)
+
+### [0.0.20](https://github.com/flanlabs/prometheus-types/compare/v0.0.19...v0.0.20) (2023-01-17)
+
+### [0.0.19](https://github.com/flanlabs/prometheus-types/compare/v0.0.18...v0.0.19) (2023-01-17)
 
 ### [0.0.18](https://github.com/flanlabs/prometheus-types/compare/v0.0.17...v0.0.18) (2023-01-12)
 

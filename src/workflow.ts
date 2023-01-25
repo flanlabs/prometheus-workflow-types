@@ -12,6 +12,8 @@ import {
 } from "./types.js";
 import { nodeValidators } from "./validator.js";
 
+export const DEFAULT_SOURCE_HANDLE_ID = "output";
+
 export const nodeIsValid = (
   node: CanvasNode,
   incomingEdges: Edge[]
