@@ -20,51 +20,47 @@ export interface Node {
     type: string;
     position: XYPosition;
 }
+export interface NodeData {
+    output?: NodeOutputType;
+    outputTitle?: string;
+    inputTitle?: string;
+    error?: string;
+    didNotExecute?: boolean;
+}
 export type GPT3Config = Omit<CreateCompletionRequest, "model" | "prompt" | "user">;
 export interface StringNode extends Node {
     type: typeof STRING_BLOCK;
-    data: {
-        templateString: string;
-        variables: string[];
-        output?: NodeOutputType;
-        outputTitle?: string;
-        inputTitle?: string;
-    };
+    data: StringNodeData;
+}
+export interface StringNodeData extends NodeData {
+    templateString: string;
+    variables: string[];
 }
 export interface LMNode extends Node {
     type: typeof LM_BLOCK;
-    data: {
-        output?: NodeOutputType;
-        outputTitle?: string;
-        config?: GPT3Config;
-    };
+    data: LMNodeData;
+}
+export interface LMNodeData extends NodeData {
+    config?: GPT3Config;
 }
 export interface ImageNode extends Node {
     type: typeof IMAGE_BLOCK;
-    data: {
-        output?: NodeOutputType;
-        outputTitle?: string;
-    };
+    data: NodeData;
 }
 export interface URLNode extends Node {
     type: typeof URL_BLOCK;
-    data: {
-        output?: NodeOutputType;
-        outputTitle?: string;
-    };
+    data: NodeData;
 }
 export declare const EXECUTABLE_CODING_LANGUAGES: readonly ["javascript"];
 export type ExecutableCodingLanguages = typeof EXECUTABLE_CODING_LANGUAGES[number];
 export interface CodeExecutionNode extends Node {
     type: typeof CODE_EXECUTION_BLOCK;
-    data: {
-        language: ExecutableCodingLanguages;
-        script: string;
-        inputKey: string;
-        output?: NodeOutputType;
-        outputTitle?: string;
-        error?: string;
-    };
+    data: CodeExecutionNodeData;
+}
+export interface CodeExecutionNodeData extends NodeData {
+    language: ExecutableCodingLanguages;
+    script: string;
+    inputKey: string;
 }
 export type PDFReaderMode = "UPLOAD" | "URL";
 export type PDFReaderURLMode = "MANUAL_ENTRY" | "BLOCK_INPUT";
@@ -80,77 +76,47 @@ export interface PDFReaderBlockType extends Node {
     type: typeof PDF_READER_BLOCK;
     data: PDFReaderBlockDataType;
 }
-export interface PDFReaderBlockDataType {
-    output?: NodeOutputType;
-    outputTitle?: string;
-    error?: string;
+export interface PDFReaderBlockDataType extends NodeData {
     config?: PDFReaderConfig;
 }
 export interface PromptSearchBlockType extends Node {
     type: typeof PROMPT_SEARCH_BLOCK;
-    data: PromptSearchDataType;
-}
-export interface PromptSearchDataType {
-    output?: NodeOutputType;
-    error?: string;
+    data: NodeData;
 }
 export interface ImagePromptSearchBlockType extends Node {
     type: typeof IMAGE_PROMPT_SEARCH_BLOCK;
-    data: ImagePromptSearchDataType;
-}
-export interface ImagePromptSearchDataType {
-    output?: NodeOutputType;
-    error?: string;
+    data: NodeData;
 }
 export interface MultiSummarizationBlockType extends Node {
     type: typeof MULTI_SUMMARIZATION_BLOCK;
-    data: MultiSummarizationBlockDataType;
-}
-export interface MultiSummarizationBlockDataType {
-    output?: NodeOutputType;
-    outputTitle?: string;
-    error?: string;
+    data: NodeData;
 }
 export interface MultiSearchBlockType extends Node {
     type: typeof MULTI_SEARCH_BLOCK;
-    data: MultiSearchBlockDataType;
-}
-export interface MultiSearchBlockDataType {
-    output?: NodeOutputType;
-    outputTitle?: string;
-    error?: string;
-}
-export interface MultiDocumentQABlockDataType {
-    output?: NodeOutputType;
-    outputTitle?: string;
-    error?: string;
+    data: NodeData;
 }
 export interface MultiDocumentQABlockType extends Node {
     type: typeof MULTI_DOCUMENT_QA_BLOCK;
-    data: MultiDocumentQABlockDataType;
+    data: NodeData;
 }
-export interface SwitchBlockDataType {
-    output?: Record<string, string>;
-    outputTitle?: string;
+export interface SwitchBlockDataType extends NodeData {
     regexPatterns: string[];
-    error?: string;
 }
 export interface SwitchBlockType extends Node {
     type: typeof SWITCH_BLOCK;
     data: SwitchBlockDataType;
 }
+export interface RecursiveCanvasBlockData extends NodeData {
+    id: string;
+    uid: string;
+    parentCanvasId: string;
+    canvasName: string;
+    inputKeys: string[];
+    outputKeys: string[];
+}
 export interface RecursiveCanvasBlockType extends Node {
     type: typeof RECURSIVE_CANVAS_BLOCK;
-    data: {
-        output?: NodeOutputType;
-        error?: string;
-        id: string;
-        uid: string;
-        parentCanvasId: string;
-        canvasName: string;
-        inputKeys: string[];
-        outputKeys: string[];
-    };
+    data: RecursiveCanvasBlockData;
 }
 export type CanvasNode = StringNode | LMNode | ImageNode | URLNode | CodeExecutionNode | PDFReaderBlockType | PromptSearchBlockType | ImagePromptSearchBlockType | MultiSummarizationBlockType | MultiSearchBlockType | MultiDocumentQABlockType | SwitchBlockType | RecursiveCanvasBlockType;
 export interface Edge {
