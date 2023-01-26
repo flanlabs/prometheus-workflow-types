@@ -96,7 +96,7 @@ export type PDFReaderConfig = {
 
   pdfBinary?: string; // base64-encoded string of the uploaded PDF
   pdfName?: string; // Title of the uploaded PDF file
-
+  pdfStoragePath?: string; // GCS path of uploaded PDF
   pdfURL?: string; // URL of the PDF
 
   mode: PDFReaderMode;
