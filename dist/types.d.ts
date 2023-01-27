@@ -68,6 +68,7 @@ export type PDFReaderConfig = {
     pdfType?: string;
     pdfBinary?: string;
     pdfName?: string;
+    pdfStoragePath?: string;
     pdfURL?: string;
     mode: PDFReaderMode;
     urlInputMode?: PDFReaderURLMode;
