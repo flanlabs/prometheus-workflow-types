@@ -146,6 +146,9 @@ export interface SwitchBlockType extends Node {
   data: SwitchBlockDataType;
 }
 
+export const SWITCH_OUTPUT_HANDLE_ID_BASE = "switch-output";
+export const DEFAULT_SWITCH_OUTPUT_HANDLE_ID = `${SWITCH_OUTPUT_HANDLE_ID_BASE}-default`;
+
 export interface RecursiveCanvasBlockData extends NodeData {
   id: string;
   uid: string;

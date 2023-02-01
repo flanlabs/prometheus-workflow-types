@@ -1,5 +1,7 @@
 export const WORKFLOWS_COLLECTION = "workflows";
 export const EXECUTABLE_CODING_LANGUAGES = ["javascript"];
+export const SWITCH_OUTPUT_HANDLE_ID_BASE = "switch-output";
+export const DEFAULT_SWITCH_OUTPUT_HANDLE_ID = `${SWITCH_OUTPUT_HANDLE_ID_BASE}-default`;
 export const LM_BLOCK = "AGIBLOCK";
 export const STRING_BLOCK = "STRING_BLOCK";
 export const IMAGE_BLOCK = "IMAGE_BLOCK";
