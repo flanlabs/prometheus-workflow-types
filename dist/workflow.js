@@ -1,9 +1,22 @@
-import { BlockDisplayName, STRING_BLOCK, } from "./types.js";
+import { BlockDisplayName, PDF_READER_BLOCK, } from "./types.js";
 import { nodeValidators } from "./validator.js";
 export const DEFAULT_SOURCE_HANDLE_ID = "output";
 export const nodeIsValid = (node, incomingEdges) => {
     const validator = nodeValidators[node.type];
     return validator ? validator(node, incomingEdges) : true;
+};
+export const checkIsInput = (node, hasIncomingEdges) => {
+    var _a;
+    if (hasIncomingEdges) {
+        return false;
+    }
+    if (node.type === "STRING_BLOCK") {
+        return true;
+    }
+    if (node.type === PDF_READER_BLOCK && ((_a = node.data.config) === null || _a === void 0 ? void 0 : _a.mode) === "WORKFLOW_INPUT") {
+        return true;
+    }
+    return false;
 };
 const comparePosition = (positionA, positionB) => {
     if (positionA.x < positionB.x) {
@@ -76,10 +89,12 @@ const getValidCanvas = (nodes, edges) => {
     const outputNodes = [];
     validNodes.forEach((node) => {
         nodesById[node.id] = node;
-        if (!(node.id in incomingEdgesByNode) && node.type === STRING_BLOCK) {
+        const nodeHasIncomingEdges = node.id in incomingEdgesByNode;
+        if (checkIsInput(node, nodeHasIncomingEdges)) {
             inputNodes.push(node.id);
         }
-        if (!(node.id in outgoingEdgesByNode)) {
+        const nodeHasOutgoingEdges = node.id in outgoingEdgesByNode;
+        if (!nodeHasOutgoingEdges) {
             outputNodes.push(node.id);
         }
     });

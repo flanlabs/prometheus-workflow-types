@@ -83,7 +83,7 @@ export interface CodeExecutionNodeData extends NodeData {
   inputKey: string;
 }
 
-export type PDFReaderMode = "UPLOAD" | "URL";
+export type PDFReaderMode = "UPLOAD" | "URL" | "WORKFLOW_INPUT";
 
 export type PDFReaderURLMode = "MANUAL_ENTRY" | "BLOCK_INPUT";
 
@@ -211,6 +211,8 @@ export const MULTI_DOCUMENT_QA_BLOCK = "MULTI_DOCUMENT_QA_BLOCK";
 export const RECURSIVE_CANVAS_BLOCK = "RECURSIVE_CANVAS_BLOCK";
 
 export const SWITCH_BLOCK = "SWITCH_BLOCK";
+
+export const INPUT_BLOCKS = [STRING_BLOCK, PDF_READER_BLOCK];
 
 export type BlockType =
   | typeof LM_BLOCK

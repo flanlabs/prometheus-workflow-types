@@ -62,7 +62,7 @@ export interface CodeExecutionNodeData extends NodeData {
     script: string;
     inputKey: string;
 }
-export type PDFReaderMode = "UPLOAD" | "URL";
+export type PDFReaderMode = "UPLOAD" | "URL" | "WORKFLOW_INPUT";
 export type PDFReaderURLMode = "MANUAL_ENTRY" | "BLOCK_INPUT";
 export type PDFReaderConfig = {
     pdfType?: string;
@@ -152,6 +152,7 @@ export declare const MULTI_SEARCH_BLOCK = "MULTI_SEARCH_BLOCK";
 export declare const MULTI_DOCUMENT_QA_BLOCK = "MULTI_DOCUMENT_QA_BLOCK";
 export declare const RECURSIVE_CANVAS_BLOCK = "RECURSIVE_CANVAS_BLOCK";
 export declare const SWITCH_BLOCK = "SWITCH_BLOCK";
+export declare const INPUT_BLOCKS: string[];
 export type BlockType = typeof LM_BLOCK | typeof STRING_BLOCK | typeof IMAGE_BLOCK | typeof URL_BLOCK | typeof CODE_EXECUTION_BLOCK | typeof PROMPT_SEARCH_BLOCK | typeof IMAGE_PROMPT_SEARCH_BLOCK | typeof PDF_READER_BLOCK | typeof MULTI_SUMMARIZATION_BLOCK | typeof MULTI_SEARCH_BLOCK | typeof MULTI_DOCUMENT_QA_BLOCK | typeof SWITCH_BLOCK | typeof RECURSIVE_CANVAS_BLOCK;
 export declare const BlockDisplayName: {
     [key in BlockType]: string;

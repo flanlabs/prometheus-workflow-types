@@ -9,6 +9,8 @@ import {
   XYPosition,
   CanvasNode,
   STRING_BLOCK,
+  PDF_READER_BLOCK,
+  INPUT_BLOCKS,
 } from "./types.js";
 import { nodeValidators } from "./validator.js";
 
@@ -22,6 +24,24 @@ export const nodeIsValid = (
   // If we have a validator, run it. Otherwise, assume the node is valid
   return validator ? validator(node, incomingEdges) : true;
 };
+
+/** Check if the node is allowed to be inputs for workflows */
+export const checkIsInput = (node: CanvasNode, hasIncomingEdges: boolean) => {
+  // only nodes without incoming edges can be inputs (for now...)
+  if (hasIncomingEdges) {
+    return false;
+  }
+  // all string blocks without incoming edges are designated inputs
+  if (node.type === "STRING_BLOCK"){
+    return true;
+  }
+  // certain PDF Reader Blocks are designated inputs
+  if (node.type === PDF_READER_BLOCK && node.data.config?.mode === "WORKFLOW_INPUT"){
+    return true
+  }
+  // all others cannot be inputs
+  return false;
+}
 
 const comparePosition = (
   positionA: XYPosition,
@@ -129,11 +149,12 @@ const getValidCanvas = (
   const outputNodes: string[] = [];
   validNodes.forEach((node) => {
     nodesById[node.id] = node;
-    if (!(node.id in incomingEdgesByNode) && node.type === STRING_BLOCK) {
-      // This node has no incoming edges and is therefore an input node
+    const nodeHasIncomingEdges = node.id in incomingEdgesByNode;
+    if (checkIsInput(node, nodeHasIncomingEdges)) {
       inputNodes.push(node.id);
     }
-    if (!(node.id in outgoingEdgesByNode)) {
+    const nodeHasOutgoingEdges = node.id in outgoingEdgesByNode;
+    if (!nodeHasOutgoingEdges) {
       // This node has no outgoing edges and is therefore an output node
       outputNodes.push(node.id);
     }
